@@ -1,0 +1,116 @@
+#  stories.yml Defines conversation flows (how chatbot responds to different inputs)
+version: "3.1"
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+
+- story: open youtube
+  steps:
+  - intent: open_youtube
+  - action: action_open_youtube
+  
+
+- story: open spotify
+  steps:
+  - intent: open_spotify
+  - action: action_open_spotify
+  
+
+- story: open whatsapp
+  steps:
+  - intent: open_whatsapp
+  - action: action_open_whatsapp
+ 
+
+- story: search the web
+  steps:
+  - intent: web_search
+  - action: action_web_search
+
+- story: ask a general question
+  steps:
+  - intent: general_question
+  - action: action_general_question
+
+- story: get weather info
+  steps:
+  - intent: get_weather
+  - action: action_get_weather
+
+- story: fallback scenario
+  steps:
+  - intent: fallback
+  - action: utter_fallback
+  - intent: affirm
+  - action: utter_greet
+
+# ---------------------------------
+# date 11/03/2025
+
+- story: User asks for help and gets assistance
+  steps:
+  - intent: help
+  - action: utter_help
+  - intent: ask_fact
+  - action: utter_ask_fact
+  - intent: thank_you
+  - action: utter_thank_you
+
+- story: User asks for a joke after greeting
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_joke
+  - action: utter_ask_joke
+  - intent: thank_you
+  - action: utter_thank_you
+
+# ------------------------------------------
+# date 12/03/2025
+- story: User asks for time in a specific location
+  steps:
+  - intent: get_time
+  - action: action_get_time
+
+
+- story: chitchat
+  steps:
+  - intent: chitchat
+  - action: utter_chitchat
+
+- story: more chitchat
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: chitchat
+  - action: utter_chitchat
+  - intent: chitchat
+  - action: utter_chitchat
+
+
+

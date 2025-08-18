@@ -1,0 +1,608 @@
+version: "3.1"
+# nlu.yml--> Defines intents (what the user wants) and examples of user input.
+nlu:
+- intent: open_youtube
+  examples: |
+    - open YouTube
+    - launch YouTube
+    - start YouTube
+    - play a video on YouTube
+    - go to YouTube
+    - I want to watch YouTube
+    - Can you open YouTube?
+    - Please start YouTube for me
+    - YouTube please
+    - Play something on YouTube
+
+- intent: open_spotify
+  examples: |
+    - open Spotify
+    - start Spotify
+    - launch Spotify
+    - play music on Spotify
+    - I want to listen to songs on Spotify
+
+- intent: open_whatsapp
+  examples: |
+    - open Whatsapp
+    - start Whatsapp
+    - launch Whatsapp
+    - Go on Whatsapp
+    - I want to chat on Whatsapp
+
+- intent: web_search
+  examples: |
+    - search for [anything](query)
+    - google [something](query)
+    - find information about [whatever I want](query)
+    - look up [any topic](query)
+    - search Google for [this query](query)
+    - search [cats](query)
+    - find [recipes](query)
+    - google [Java tutorials](query)
+
+- intent: get_weather
+  examples: |
+    - What's the weather like in [Pune](location)?
+    - Tell me the weather in [Kolhapur](location).
+    - Show me the temperature in [Mumbai](location).
+    - How's the weather in [Lucknow](location)?
+    - Weather in [Nagpur](location)?
+    - Is it sunny in [Nashik](location)?
+    - Is it raining in [Kolkata](location)?
+    - What is the temperature in [Delhi](location)?
+    - How's the weather in [Chennai](location)?
+    - Tell me the weather in [Hyderabad](location).
+    
+- lookup: location  # ✅ Lookup table (if used)
+  examples: |
+    - Pune
+    - Mumbai
+    - Kolhapur  
+
+- intent: general_question
+  examples: |
+    - What is the capital of India?
+    - Who is the President of the United States?
+    - How many continents are there?
+    - What is the speed of light?
+    - When was Google founded?
+    - what is the population of india?
+    - Translate "Hello" into Spanish?
+    - how many states arein india?
+
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - hey there
+    - what's up?
+
+- intent: goodbye
+  examples: |
+    - bye
+    - goodbye
+    - see you later
+    - take care
+    - have a great day
+
+- intent: affirm
+  examples: |
+    - Accept
+    - Awesome!
+    - Good
+    - Great
+    - I accept
+    - I accept.
+    - I agree
+    - I am using it
+    - I changed my mind. I want to accept it
+    - I do
+    - I get it
+    - I guess so
+    - I have used it in the past
+    - I will
+    - I'd absolutely love that
+    - I'm sure I will!
+    - I'm using it
+    - Nice
+    - OK
+    - Ofcourse
+    - Oh yes
+    - Oh, ok
+    - Ok
+    - Ok let's start
+    - Ok.
+    - Okay
+    - Okay!
+    - PLEASE
+    - SURE
+    - Sure
+    - Sweet
+    - That would be great
+    - YES
+    - YUP
+    - Yea
+    - Yeah
+    - Yeah sure
+    - Yep
+    - Yep that's fine
+    - Yep!
+    - Yepp
+    - Yes
+    - Yes I do
+    - Yes please
+    - Yes please!
+    - Yes, I accept
+    - Yes.
+    - Yup
+    - a little
+    - absolutely
+    - accept
+    - accepted
+    - agreed
+    - ah ok
+    - alright
+    - alright, cool
+    - amayzing
+    - amazing!
+    - awesome
+    - awesome!
+    - confirm
+    - cool story bro
+    - definitely yes without a doubt
+    - done
+    - fair enough
+    - fcourse
+    - fine
+    - fuck yeah!
+    - go
+    - go ahead
+    - go for it
+    - going super well
+    - good.
+    - great
+    - great lets do that
+    - great!
+    - hell yeah
+    - hell yes
+    - hm, i'd like that
+    - how nice!
+    - i accept
+    - i agree
+    - i am!
+    - i want that
+    - i will!
+    - it is ok
+    - its okay
+    - ja
+    - ja cool
+    - ja thats great
+    - jezz
+    - jo
+    - k
+    - kk
+    - lets do it
+    - lets do this
+    - not bad
+    - of course
+    - ofcoure i do
+    - ofcourse
+    - oh awesome!
+    - oh cool
+    - oh good !!
+    - oh super
+    - ok
+    - ok cool
+    - ok fine
+    - ok friend
+    - ok good
+    - ok great
+    - ok i accept
+    - ok sara
+    - ok, I behave now
+    - ok, I understood
+    - ok, Sara
+    - ok...
+    - okay
+    - okay cool
+    - okay sure
+    - okay..
+    - oki doki
+    - okie
+    - ook
+    - oui
+    - perfect
+    - please
+    - si
+    - sort of
+    - sure
+    - sure thing
+    - sure!
+    - that is cool
+    - that ok
+    - that sounds fine
+    - that's great
+    - thats fine
+    - thats good
+    - thats great
+    - top
+    - uh-huh
+    - very much
+    - well yes
+    - y
+    - ya
+    - ya cool
+    - ya go for it
+    - ya i want
+    - ya please
+    - ya thats cool
+    - yaah
+    - yap
+    - yaps
+    - yas
+    - yay
+    - ye
+    - ye splease
+    - yea
+    - yeah
+    - yeah do that
+    - yeah sure
+    - yeah'=
+    - yeah, why not
+    - yeeeeezzzzz
+    - yeeees
+    - yep
+    - yep i want that
+    - yep if i have to
+    - yep please
+    - yep that's nice
+    - yep thats cool
+    - yep, will do thank you
+    - yep. :/
+    - yes
+    - yes ...
+    - yes I do
+    - yes accept please
+    - yes baby
+    - yes cool
+    - yes give me information
+    - yes go ahead
+    - yes go for it
+    - yes great
+    - yes i accept
+    - yes i agree
+    - yes i have built a bot before
+    - yes i have!
+    - yes it is
+    - yes it was okay
+    - yes of course
+    - yes pleae
+    - yes please
+    - yes please!
+    - yes pls
+    - yes sirfr
+    - yes that's great
+    - yes that's what i want
+    - yes you can
+    - yes'
+    - yes, I'd love to
+    - yes, cool
+    - yes, give me information, please
+    - yes,i am
+    - yes.
+    - yesh
+    - yess
+    - yessoo
+    - yesss
+    - yesssss
+    - yesyestyes
+    - yesyesyes
+    - yez
+    - yop
+    - you asked me a yes or no question, which i answered with yes
+    - you got me, I accept, if you want me to
+    - yres
+    - ys
+    - yup
+    - yyeeeh
+    - Okay cool
+    - ok..
+    - considering
+    - More a less
+    - sounds good!
+    - really
+
+- intent: deny
+  examples: |
+    - no
+    - nope
+    - not really
+    - I don't think so
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - wonderful
+    - I am feeling very good
+    - I am great
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+- intent: fallback
+  examples: |
+    - Sorry, I didn't understand that.
+    - Can you please repeat?
+    - I don't know what you mean.
+    - I'm not sure how to respond.
+
+# ----------------------------------
+# date 11/03/2025
+
+- intent: ask_name
+  examples: |
+    - What's your name?
+    - Who are you?
+    - Tell me your name
+    - What should I call you?
+    - Do you have a name? 
+
+- intent: thank_you
+  examples: |
+    - Thanks!
+    - Thank you so much
+    - Appreciate it!
+    - Thanks a lot
+    - Thanks for helping me
+    - I really appreciate it
+    - Cheers!
+
+- intent: help
+  examples: |
+    - I need help.
+    - Can you assist me?
+    - I am stuck, what should I do?
+    - Help me with this issue.
+    - I don’t understand, please help.
+    - What can you help me with?
+    - I need some guidance.
+    - Can you explain how this works?
+    - I'm lost, please assist me.
+    - Give me some help, please.
+
+- intent: ask_joke
+  examples: |
+    - Tell me a joke
+    - Can you make me laugh?
+    - Give me a funny joke
+    - I need a joke
+    - Make me smile
+
+- intent: ask_fact
+  examples: |
+    - Tell me a fun fact
+    - Give me an interesting fact
+    - Do you know any cool facts?
+    - Share some knowledge with me
+
+# -------------------------------------------
+# date 12/03/2025
+- intent: get_time
+  examples: |
+    - What's the time in [Tokyo](location)?
+    - Tell me the time in [Sydney](location).
+    - What is the local time in [Delhi](location)?
+    - Show me the current time in [London](location).
+    - Can you tell me the time in [Dubai](location)?
+
+# ------------------------------------------------
+# date 28/03/2025
+# - intent: mood_angry
+#   examples: |
+#     - I am angry
+#     - I am feeling so angry
+#     - I am so annoyed
+#     - It's annoying
+#     - That's aggravating
+#     - I'm furious
+#     - That is infuriating
+#     - I'm very mad
+#     - Everything vexes me
+#     - I am outraged
+#     - That is outrageous!
+#     - I feel hostile
+#     - I am very frustrated
+#     - It is irritating me
+#     - I feel so offended
+#     - I am full of fury
+#     - I feel very belligerent
+#     - I hate doing this
+#     - I have no patience today
+#     - I could not control my anger
+#     - I’m annoyed
+#     - I’m super annoyed
+#     - I’m so mad.
+#     - I'm enraged
+#     - I’m straight up angry.
+#     - This is maddening!
+#     - I'm pissed off
+#     - I'm pissed
+#     - You bet I'm angry
+#     - That made me angry
+#     - U made me angry
+#     - I'm still angry about that
+
+# - intent: mood_scared
+#   examples: |
+#     - I am scared
+#     - I feel scared
+#     - I'm worried
+#     - I am terrified
+#     - That is frightening
+#     - I feel intimidated
+#     - That is intimidating
+#     - I am petrified
+#     - I am afraid
+#     - I feel anxious
+#     - I'm having a bad feeling
+#     - I'm fearful
+#     - I panicked
+#     - I shrank back in fear
+#     - I am scared to death
+#     - I broke out in a cold sweat
+#     - That startled me!
+#     - I'm spooked easily
+#     - I'm trembling from fear
+#     - I'm horrified
+
+# - intent: mood_nervous
+#   examples: |
+#     - I am nervous
+#     - I am stressed out
+#     - I feel nervous
+#     - I am anxious
+#     - I feel anxious
+#     - This is nerveracking
+#     - This is nervewracking
+#     - This is nerve racking
+#     - This is nerve wracking
+#     - I feel like I am going to throw up
+#     - I have a lump in my throat
+#     - I have butterflies in my stomach
+#     - I am a bundle of nerves
+#     - I am breaking out in a cold sweat
+#     - I am afraid of my own shadow
+#     - I am like a cat on hot bricks
+#     - I am jumping out of my skin
+#     - I am at my wits' end
+#     - I am tongue tied
+#     - I am on edge
+#     - I am very tense
+#     - I feel uneasy
+#     - I am alarmed
+#     - I am troubled
+#     - I'm tensed
+#     - I'm stressed
+#     - I'm under a lot of stress
+#     - I'm constantly worried
+#     - I feel constant tension
+#     - I’m anxious.
+#     - I’m suffering from anxiety.
+#     - I’ve been feeling rather anxious lately.
+#     - My anxiety is rather through the roof these days.
+#     - I’m feeling rather restless
+#     - I cannot concentrate as I'm worried constantly
+#     - I'm under immense stress
+#     - It's been a rough couple of days. VERY stressful
+#     - I'm quite tensed.
+#     - There's been quite a few changes in my life. I don't think I am handling them well. It's quite stressful.
+#     - I find myself worrying about every little detail
+#     - I am a chronic worrier.
+#     - I’m feeling rather restless and a horde of worries is bothering me
+#     - I cannot concentrate due to the whole number of worries that are bothering me
+
+# - intent: mood_bored
+#   examples: |
+#     - soo bored
+#     - that was boring
+#     - I'm bored
+#     - bored
+#     - boring
+#     - I am getting bored
+#     - Staying at home is boring
+#     - very boring
+#     - it bores me
+#     - i had a slow day
+#     - i am very bored
+#     - Im kinda bored today
+#     - I've never been more bored
+#     - I was bored
+#     - It's boring
+#     - This is boring
+#     - We're all bored
+#     - It's very boring
+#     - I'm already bored
+#     - I'm bored out of my mind
+
+# - intent: mood_excited
+#   examples: |
+#     - I am excited
+#     - I'm really excited
+#     - I can't begin to say how excited I am
+#     - I'm thrilled
+#     - I'm damn excited
+#     - I'm hyped
+#     - I'm very excited
+#     - I felt excited
+#     - It was exciting
+#     - That was exciting
+#     - How exciting!
+#     - This is so fun
+
+# - intent: mood_lonely
+#   examples: |
+#     - I am lonely
+#     - I'm very lonely
+#     - I'm so lonely
+#     - I'm really lonely
+#     - I am feeling lonely
+#     - I feel lonely
+#     - I am a loner
+#     - I don't have any company
+#     - I don't have anyone else
+#     - I'm always alone
+#     - I'm alone
+#     - am all alone
+#     - I live alone
+#     - I'm all alone
+#     - I've gotten used to living alone
+#     - I think I've been living alone too long
+#     - I have no one to talk to
+#     - I am still alone
+#     - I am used to living alone
+
+# - intent: mood_tired
+#   examples: |
+#     - I'm drained
+#     - I've overworked
+#     - I am tired
+#     - I'm exhausted
+#     - I grow weary
+#     - I'm worn out
+#     - I'm getting tired
+#     - I feel tired
+#     - I'm so tired
+#     - I'm completely drained out
+#     - I'm very tired
+#     - i was tired
+#     - i feel tired
+#     - i'm dead tired
+#     - I'm a bit tires
+#     - I was very tired
+#     - I am really tired
+#     - i am awfully tired
+#     - i am kind of so tired
+#     - I am little tired
+
+regex:
+  - name: location
+    pattern: "(?i)[A-Za-z]+(?:[\\s-][A-Za-z]+)*"

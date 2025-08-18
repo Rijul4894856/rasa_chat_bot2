@@ -1,0 +1,9 @@
+-- Run this once to create your table (via sqlite3 or Python)
+
+CREATE TABLE users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    username TEXT UNIQUE NOT NULL,
+    password_hash TEXT NOT NULL,
+    token TEXT,
+    last_access TEXT
+);

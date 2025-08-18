@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Chat App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <h1>Cipher The Bot</h1>
+
+        <!-- 🐻 Bear Animation -->
+        <div id="bear-container">
+            <div class="bear">
+                <div class="ear left-ear"></div>
+                <div class="ear right-ear"></div>
+                <div class="eye left-eye"></div>
+                <div class="eye right-eye"></div>
+                <div class="mouth"></div>
+            </div>
+        </div>
+
+        <div id="chat-container">
+            <div id="messages"></div>
+        </div>
+
+        <div id="controls">
+            <input type="text" id="user-input" placeholder="Type a message...">
+            <button id="send-button">Send</button>
+            <button id="start-recording">🎤 Speak</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

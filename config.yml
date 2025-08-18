@@ -1,0 +1,54 @@
+# The config recipe.
+recipe: default.v1
+
+# The assistant project unique identifier
+assistant_id: 20250203-114820-calm-mousse
+
+# Configuration for Rasa NLU.
+language: en
+
+# 📌 Optimized pipeline configuration
+pipeline:
+  - name: WhitespaceTokenizer          # Splits text into words based on spaces
+  - name: RegexFeaturizer              # ✅ Handles regex-based entity extraction
+  - name: LexicalSyntacticFeaturizer   # ✅ Adds linguistic features (prefix, suffix, etc.) (add meaning to text) eg "I am walking to the store." walk
+  - name: CountVectorsFeaturizer       # Converts text into numerical features
+  - name: CountVectorsFeaturizer       # ✅ Added for character-level n-grams
+    analyzer: char_wb
+    min_ngram: 1
+    max_ngram: 4
+  - name: DIETClassifier               # Classifies user intent and extracts entities
+    epochs: 100
+    constrain_similarities: true
+    entity_recognition: True           # ✅ Ensures entity recognition
+  - name: RegexEntityExtractor         # ✅ Extracts locations using regex
+    use_lookup_tables: True
+    use_regexes: True
+    use_word_boundaries: False
+    validation: True
+    entities: 
+      - location                       # ✅ Extract locations using regex patterns
+  - name: EntitySynonymMapper          # Handles synonyms for entities
+  - name: ResponseSelector             # ✅ Improved FAQ responses
+    epochs: 100
+    constrain_similarities: true
+  - name: FallbackClassifier           # Defines fallback actions for low-confidence responses
+    threshold: 0.3
+    ambiguity_threshold: 0.1
+
+# 📌 Optimized policies configuration
+policies:
+  - name: MemoizationPolicy            # Remembers exact user inputs
+  - name: RulePolicy                   # For rule-based responses
+  - name: UnexpecTEDIntentPolicy       # ✅ Handles unexpected intents
+    max_history: 5
+    epochs: 100
+  - name: TEDPolicy                    # Enhanced policy for complex conversations
+    max_history: 5
+    epochs: 100
+    constrain_similarities: true
+
+# Enable end-to-end conversation handling
+assistant:
+  response_selector:
+    retrieval_intent: true

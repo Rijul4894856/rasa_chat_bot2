@@ -1,0 +1,170 @@
+version: "3.1"
+# domain.yml --> Defines intents, actions, responses, and entities used in the chatbot.
+intents:
+  - open_youtube
+  - open_spotify
+  - open_whatsapp
+  - web_search
+  - general_question
+  - get_weather
+  - greet
+  - help
+  - thank_you
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - fallback
+  - ask_name
+  - ask_joke
+  - ask_fact
+  - get_time
+  - chitchat
+  
+
+entities:
+  - query
+  - location
+  - chitchat_type
+
+actions:
+  - action_open_youtube
+  - action_open_spotify
+  - action_open_whatsapp
+  - action_web_search
+  - action_general_question
+  - action_get_weather
+  - action_get_time
+
+responses:
+  utter_greet:
+    - text: "Hey there! I hope you're having a fantastic day! How can I assist you today?"
+    - text: "Hello! It's great to see you. What can I help you with today?"
+    - text: "Hi there! I’m here to assist you. Let me know how I can make your day easier!"
+
+  utter_cheer_up:
+    - text: "Don't worry, tough times never last, but tough people do! Here's something to brighten your day! 😊"
+      image: "https://i.imgur.com/nGF1K8f.jpg"
+    - text: "Feeling down? Here's a little something to bring a smile to your face! Keep pushing forward! 😊"
+      image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+    - text: "I hope that helped lift your spirits! Let me know if there's anything else I can do for you."
+    - text: "Did that make you feel a bit better? Remember, every day is a fresh start!"
+    - text: "I hope that brought some positivity your way! Do you need any more uplifting words?"
+
+  utter_happy:
+    - text: "That’s awesome to hear! Keep smiling and spreading the positivity! 😃"
+    - text: "Glad to know that! Stay happy, stay positive, and keep shining! 🌟"
+    - text: "Fantastic! I'm always here to keep the good vibes going!"
+
+  utter_goodbye:
+    - text: "Goodbye! Wishing you a wonderful day ahead. Remember, I'm always here if you need me!"
+    - text: "See you later! Take care and don’t hesitate to come back if you need anything."
+    - text: "It was great talking to you! Have an amazing day, and I hope to chat again soon!"
+
+  utter_iamabot:
+    - text: "Yep, I’m an AI-powered assistant designed to help you with whatever you need! 🤖"
+    - text: "That's right! I might be a bot, but I’m here to make your life easier and more fun!"
+    - text: "Yes, I’m an AI chatbot! I can answer your questions, share fun facts, or just chat with you!"
+
+  utter_ask_location:
+    - text: "I'd be happy to provide you with the weather! Could you please tell me the location you’re interested in?"
+    - text: "Sure! I can fetch the weather details for you. Which city or region would you like to know about?"
+    - text: "Let’s check the weather! Please share the location, and I’ll give you the latest update."
+
+  utter_weather_info:
+    - text: "Currently, in {location}, it's {temp}°C with {description}. Let me know if you need more details! 🌤"
+    - text: "The weather in {location} right now is {temp}°C, and it looks like {description}. Hope that helps! 😊"
+    - text: "At the moment, the temperature in {location} is {temp}°C, with {description}. Stay prepared for the day ahead!"
+
+  utter_fallback:
+    - text: "I didn't quite understand that. Can you rephrase your question? I'm here to help! 😊"
+    - text: "Hmm, that’s a tricky one! I might need more details. Could you ask in a different way?"
+    - text: "I’m not sure I got that. Maybe try asking in a simpler way, and I’ll do my best to help!"
+
+
+
+# -----------------------------------------
+# date 11/03/2025
+  utter_ask_name:
+    - text: "I'm your friendly chatbot!"
+    - text: "You can call me ChatBot."
+    - text: "I'm an AI assistant, here to help you."
+    - text: "I go by many names, but you can just call me Bot!"
+
+  utter_thank_you:
+    - text: "You're welcome!"
+    - text: "Happy to help!"
+    - text: "Anytime! Let me know if you need anything else."
+    - text: "Glad I could assist you."
+
+  utter_help:
+    - text: "Sure! How can I assist you?"
+    - text: "I'm here to help! What do you need?"
+    - text: "Let me know what you're struggling with, and I'll do my best to assist."
+    - text: "How can I help you today?"
+    - text: "I’d be happy to help! Please describe your issue."
+
+  utter_ask_joke:
+    - text: "Why did the scarecrow win an award? Because he was outstanding in his field!"
+    - text: "What do you call fake spaghetti? An impasta!"
+    - text: "Why don’t skeletons fight each other? They don’t have the guts."
+    - text: "How do you organize a space party? You planet!"
+
+  utter_ask_fact:
+    - text: "Did you know? Honey never spoils! Archaeologists have found pots of honey in ancient Egyptian tombs that are over 3,000 years old and still perfectly good to eat."
+    - text: "Here’s a fact: A day on Venus is longer than a year on Venus."
+    - text: "Fun fact: Bananas are berries, but strawberries aren’t!"
+    - text: "Did you know? Octopuses have three hearts!"
+
+  # --------------------------------------------
+  # date 12/03/2025
+  utter_ask_location_time:
+    - text: "Which location do you need the time for?"
+
+  # utter_chitchat:
+  #   - text: "I'm here to help you!"
+
+
+
+slots:
+  query:
+    type: text
+    mappings:
+      - type: from_text
+    influence_conversation: true
+
+  location:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: location
+      - type: from_text
+    influence_conversation: true
+
+  temp:
+    type: text
+    mappings:
+      - type: from_text
+    influence_conversation: false
+
+  description:
+    type: text
+    mappings:
+      - type: from_text
+    influence_conversation: false
+
+  chitchat_type:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: chitchat_type
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
