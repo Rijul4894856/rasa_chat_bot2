@@ -163,38 +163,3 @@ class ActionGeneralQuestion(Action):
             dispatcher.utter_message(text="I'm not sure. Try searching online.")
         return []
 
-# -------------------------------------
-# date 12/03/2025
-
-# class ActionGetTime(Action):
-#     def name(self):
-#         return "action_get_time"
-
-#     def run(self, dispatcher, tracker, domain):
-#         location = tracker.get_slot("location")
-
-#         if not location:
-#             dispatcher.utter_message(text="Please provide a location to check the time.")
-#             return []
-
-#         try:
-#             # Convert location to lowercase & replace spaces with underscores for API request
-#             formatted_location = location.lower().replace(" ", "_")
-
-#             # WorldTimeAPI request
-#             response = requests.get(f"http://worldtimeapi.org/api/timezone/{formatted_location}")
-
-#             if response.status_code != 200:
-#                 dispatcher.utter_message(text=f"Sorry, I couldn't find the time for '{location}'. Try another city.")
-#                 return []
-
-#             data = response.json()
-#             current_time = data["datetime"][:19]  # Extract YYYY-MM-DD HH:MM:SS format
-
-#             dispatcher.utter_message(text=f"The current time in {location.title()} is {current_time}.")
-
-#         except Exception as e:
-#             print(f"Error: {e}")  # Debugging logs
-#             dispatcher.utter_message(text="Sorry, there was an error fetching the time. Please try again later.")
-
-#         return []
